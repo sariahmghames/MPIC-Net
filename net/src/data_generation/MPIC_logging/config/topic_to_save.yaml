@@ -1,0 +1,11 @@
+[/gazebo/link_states,
+/gazebo/model_states,
+/gazebo/parameter_descriptions,
+/gazebo/parameter_updates,
+/gazebo/set_link_state,
+/gazebo/set_model_state,
+/gazebo_gui/parameter_descriptions,
+/gazebo_gui/parameter_updates,
+/joint_commands,
+/joint_states,
+]
