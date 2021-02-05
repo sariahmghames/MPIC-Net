@@ -50,7 +50,7 @@ def main(args):
 	total_loss=[]
 	print len(dataset)
 	print len(targets)
-	sm=100 # start saving models after 100 epochs
+	sm=10 # start saving models after 100 epochs
 	for epoch in range(args.num_epochs):
 		print "epoch" + str(epoch)
 		avg_loss=0
@@ -72,15 +72,15 @@ def main(args):
 		if epoch==sm:
 			model_path='mlp_100_4000_PReLU_ae_dd'+str(sm)+'.pkl'
 			torch.save(mlp.state_dict(),os.path.join(args.model_path,model_path))
-			sm=sm+50 # save model after every 50 epochs from 100 epoch ownwards
+			sm=sm+5 # save model after every 50 epochs from 100 epoch ownwards
 	torch.save(total_loss,'total_loss.dat')
 	model_path='mlp_100_4000_PReLU_ae_dd_final.pkl'
 	torch.save(mlp.state_dict(),os.path.join(args.model_path,model_path))
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 	parser.add_argument('--model_path', type=str, default='./models/',help='path for saving trained models')
-	parser.add_argument('--no_env', type=int, default=50,help='directory for obstacle images')
-	parser.add_argument('--no_motion_paths', type=int,default=2000,help='number of optimal paths in each environment')
+	parser.add_argument('--no_env', type=int, default=7,help='directory for obstacle images')
+	parser.add_argument('--no_motion_paths', type=int,default=70,help='number of optimal paths in each environment')
 	parser.add_argument('--log_step', type=int , default=10,help='step size for prining log info')
 	parser.add_argument('--save_step', type=int , default=1000,help='step size for saving trained models')
 
